@@ -143,7 +143,7 @@ class PostgresqlCollector(diamond.collector.Collector):
                         stat.fetch(self._get_config(instance, 'pg_version'))
                         for metric, value in stat:
                             if value is not None:
-                                self.publish("%s.$s" % (instance, metric), value)
+                                self.publish("%s.%s" % (instance, metric), value)
 
                         # Setting multi_db to True will run this query on all known
                         # databases. This is bad for queries that hit views like
